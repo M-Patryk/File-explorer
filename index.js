@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 const fs = require('fs')
+const util = require('util')
 
-fs.readdir(process.cwd(), (err, files) => {
+//Method #2
+//const lstat = util.promisify(fs.lstat)
+
+//Method #3
+const {lstat} = fs.promises;
+
+fs.readdir(process.cwd(), (err, filenames) => {
     //Either err === error object, which means something went wrong
     // OR err === 0, which means everything is OK
     if(err){
@@ -9,5 +16,18 @@ fs.readdir(process.cwd(), (err, files) => {
         throw new Error(err) // w tym przypadku jesli wystapi problem to od razu program sie zatrzyma
     }
 
-    console.log(files)
 })
+
+
+//Method #1 - has to be at the bottom
+// const lstat = (filenames) => {
+//     return new Promise((resolve, reject) => {
+//         fs.lstat((err, stats) => {
+//             if(err){
+//                 reject(err)
+//             }
+
+//             resolve(stats)
+//         })
+//     })
+// }

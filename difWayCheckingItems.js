@@ -33,4 +33,22 @@
 // })
 
 
-//Option #2
+//Option #2 via async await
+//Method #1 - has to be at the bottom
+// const lstat = (filename) => {
+// 	return new Promise((resolve, reject) => {
+// 		fs.lstat(filename, (err, stats) => {
+// 			if (err) {
+// 				reject(err);
+// 			}
+
+// 			resolve(stats);
+// 		});
+// 	});
+// };
+
+//Method #2
+// const lstat = util.promisify(fs.lstat)
+
+//Method #3
+//const {lstat} = fs.promises;

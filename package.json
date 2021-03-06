@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/M-Patryk/FileExplorer/issues"
   },
-  "homepage": "https://github.com/M-Patryk/FileExplorer#readme"
+  "homepage": "https://github.com/M-Patryk/FileExplorer#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
 }
